@@ -20,7 +20,6 @@ spec = Gem::Specification.new do |s|
   s.add_dependency('eventmachine', '~> 1.0', '= 1.0.7')
   s.add_dependency('json_pure', '~> 1.8', '>= 1.8.1')
   s.add_dependency('daemons', '~> 1.1', '>= 1.2.2')
-  s.add_dependency('thin', '~> 1.6', '>= 1.6.3')
 
   s.require_paths = ['lib']
   s.bindir = 'bin'

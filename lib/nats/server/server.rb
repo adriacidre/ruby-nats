@@ -198,39 +198,7 @@ module NATSD #:nodoc: all
 
       # Monitoring
       def start_http_server
-        return unless port = @options[:http_port]
-
-        require 'thin'
-
-        log "Starting http monitor on port #{port}"
-
-        @healthz = "ok\n"
-
-        @varz = {
-          :start => Time.now,
-          :options => @options,
-          :cores => num_cpu_cores
-        }
-
-        http_server = Thin::Server.new(@options[:http_net], port, :signals => false) do
-          Thin::Logging.silent = true
-          if NATSD::Server.options[:http_user]
-            auth = [NATSD::Server.options[:http_user], NATSD::Server.options[:http_password]]
-            use Rack::Auth::Basic do |username, password|
-              [username, password] == auth
-            end
-          end
-          map '/healthz' do
-            run lambda { |env| [200, RACK_TEXT_HDR, NATSD::Server.healthz] }
-          end
-          map '/varz' do
-            run Varz.new
-          end
-          map '/connz' do
-            run Connz.new
-          end
-        end
-        http_server.start!
+        return
       end
 
     end
