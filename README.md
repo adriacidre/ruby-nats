@@ -1,3 +1,11 @@
+# IMPORTANT!!!
+
+The purpose of this fork is to keep ruby-nats client compatible with jruby. 
+In order to accomplish this, we've needed to remove the http monitoring feature based on gem thin, which is not supported by JRuby
+Actually we are working with fork on an environment based on JRuby 1.7.13
+
+---
+
 # NATS - Ruby Client
 
 A [Ruby](http://ruby-lang.org) client for the [NATS messaging system](https://nats.io).
